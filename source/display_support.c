@@ -14,6 +14,8 @@
 #include "fsl_rm68191.h"
 #elif (DEMO_PANEL_RK055MHD091 == DEMO_PANEL)
 #include "fsl_hx8394.h"
+#elif (DEMO_PANEL_ST7703_BV041HDE == DEMO_PANEL)
+#include "fsl_st7703.h"
 #elif (DEMO_PANEL_RASPI_7INCH == DEMO_PANEL)
 #include "fsl_rpi.h"
 #endif
@@ -60,6 +62,15 @@
 #define DEMO_VSW 2
 #define DEMO_VFP 16
 #define DEMO_VBP 14
+
+#elif (DEMO_PANEL_ST7703_BV041HDE == DEMO_PANEL)
+
+#define DEMO_HSW 30
+#define DEMO_HFP 40
+#define DEMO_HBP 40
+#define DEMO_VSW 4
+#define DEMO_VFP 16
+#define DEMO_VBP 16
 
 #elif (DEMO_PANEL_RASPI_7INCH == DEMO_PANEL)
 
@@ -172,6 +183,24 @@ static const hx8394_resource_t hx8394Resource = {
 static display_handle_t hx8394Handle = {
     .resource = &hx8394Resource,
     .ops      = &hx8394_ops,
+};
+
+#elif (DEMO_PANEL_ST7703_BV041HDE == DEMO_PANEL)
+
+static mipi_dsi_device_t dsiDevice = {
+    .virtualChannel = 0,
+    .xferFunc       = BOARD_DSI_Transfer,
+};
+
+static const st7703_resource_t st7703Resource = {
+    .dsiDevice    = &dsiDevice,
+    .pullResetPin = BOARD_PullPanelResetPin,
+    .pullPowerPin = BOARD_PullPanelPowerPin,
+};
+
+static display_handle_t st7703Handle = {
+    .resource = &st7703Resource,
+    .ops      = &st7703_ops,
 };
 
 #elif (DEMO_PANEL_RASPI_7INCH == DEMO_PANEL)
@@ -322,6 +351,7 @@ static void BOARD_InitLcdifClock(void)
      *
      * For 60Hz frame rate, the RK055IQH091 pixel clock should be 36MHz.
      * the RK055AHD091 pixel clock should be 62MHz,
+     * the ST7703 BV041HDE pixel clock should be 65.54MHz,
      * and the RaspberryPi pixel clock should be 28MHz.
      */
     const clock_root_config_t lcdifClockConfig = {
@@ -329,6 +359,8 @@ static void BOARD_InitLcdifClock(void)
         .mux      = 4, /*!< PLL_528. */
 #if ((DEMO_PANEL == DEMO_PANEL_RK055AHD091) || (DEMO_PANEL_RK055MHD091 == DEMO_PANEL))
         .div = 9,
+#elif (DEMO_PANEL == DEMO_PANEL_ST7703_BV041HDE)
+        .div = 8,  /* 528MHz / 8 = 66MHz ≈ 65.54MHz */
 #elif (DEMO_PANEL == DEMO_PANEL_RASPI_7INCH)
         .div = 19,
 #else
@@ -412,8 +444,10 @@ static status_t BOARD_InitLcdPanel(void)
 
 #if (DEMO_PANEL == DEMO_PANEL_RK055AHD091)
     status = RM68200_Init(&rm68200Handle, &displayConfig);
-#elif (DEMO_PANEL_RK055MHD091 == DEMO_PANEL)
+#elif (DEMO_PANEL == DEMO_PANEL_RK055MHD091)
     status               = HX8394_Init(&hx8394Handle, &displayConfig);
+#elif (DEMO_PANEL == DEMO_PANEL_ST7703_BV041HDE)
+    status = ST7703_Init(&st7703Handle, &displayConfig);
 #elif (DEMO_PANEL_RASPI_7INCH == DEMO_PANEL)
     status = RPI_Init(&rpiHandle, &displayConfig);
 #else

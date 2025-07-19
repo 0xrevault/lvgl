@@ -19,6 +19,7 @@
 #define DEMO_PANEL_RK055AHD091 0 /* 720 * 1280, RK055AHD091-CTG(RK055HDMIPI4M) */
 #define DEMO_PANEL_RK055IQH091 1 /* 540 * 960,  RK055IQH091-CTG */
 #define DEMO_PANEL_RK055MHD091 2 /* 720 * 1280, RK055MHD091A0-CTG(RK055HDMIPI4MA0) */
+#define DEMO_PANEL_ST7703_BV041HDE 3 /* 720 * 1280, ST7703 BV041HDE-NB0-1Q00 2-lane MIPI */
 #define DEMO_PANEL_RASPI_7INCH 5 /* 800 * 480, Raspberry Pi 7" */
 
 #define DEMO_DISPLAY_CONTROLLER_ELCDIF  0
@@ -26,7 +27,7 @@
 
 /* Configure this macro in Kconfig or directly in the generated mcux_config.h. */
 #ifndef DEMO_PANEL
-#define DEMO_PANEL DEMO_PANEL_RK055MHD091
+#define DEMO_PANEL DEMO_PANEL_ST7703_BV041HDE
 #endif
 
 /* Configure this macro in Kconfig or directly in the generated mcux_config.h. */
@@ -80,6 +81,11 @@
 
 #define DEMO_PANEL_WIDTH  (540)
 #define DEMO_PANEL_HEIGHT (960)
+
+#elif (DEMO_PANEL_ST7703_BV041HDE == DEMO_PANEL)
+
+#define DEMO_PANEL_WIDTH  (720)
+#define DEMO_PANEL_HEIGHT (1280)
 
 #elif (DEMO_PANEL_RASPI_7INCH == DEMO_PANEL)
 

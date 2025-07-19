@@ -7,6 +7,7 @@ A demo application to show lvgl widgets.
 - [EVKB-IMXRT1050](../../_boards/evkbimxrt1050/lvgl_examples/lvgl_examples_readme.md)
 - [MIMXRT1060-EVKB](../../_boards/evkbmimxrt1060/lvgl_examples/lvgl_examples_readme.md)
 - [MIMXRT1170-EVKB](../../_boards/evkbmimxrt1170/lvgl_examples/lvgl_examples_readme.md)
+- [MIMXRT1170-EVKB with ST7703 BV041HDE Panel](ST7703_panel_configuration.md)
 - [MIMXRT1060-EVKC](../../_boards/evkcmimxrt1060/lvgl_examples/lvgl_examples_readme.md)
 - [EVK-MIMXRT1010](../../_boards/evkmimxrt1010/lvgl_examples/lvgl_examples_readme.md)
 - [EVK-MIMXRT1015](../../_boards/evkmimxrt1015/lvgl_examples/lvgl_examples_readme.md)

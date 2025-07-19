@@ -3,7 +3,7 @@ Hardware requirements
 - Mini/micro USB cable
 - MIMXRT1170-EVKB board
 - Personal Computer
-- RK055MHD091 panel or RK055AHD091 panel or RK055IQH091 panel or RaspberryPi panel
+- RK055MHD091 panel or RK055AHD091 panel or RK055IQH091 panel or ST7703 BV041HDE panel or RaspberryPi panel
 
 Board settings
 ============
@@ -34,6 +34,7 @@ If package is used, modify the mcux_config.h:
 change DEMO_PANEL to 0 to use RK055AHD091-CTG.
 change DEMO_PANEL to 1 to use RK055IQH091-CTG.
 change DEMO_PANEL to 2 to use RK055MHD091A0-CTG(default).
+change DEMO_PANEL to 3 to use ST7703 BV041HDE-NB0-1Q00 (720x1280, 2-lane MIPI).
 change DEMO_PANEL to 5 to use RaspberryPi panel.
 
 
