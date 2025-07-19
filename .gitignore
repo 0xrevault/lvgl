@@ -1,0 +1,173 @@
+# MCUXpresso IDE and Embedded Development .gitignore
+
+# Build directories
+Debug/
+Release/
+build/
+Build/
+out/
+bin/
+obj/
+
+# Compiled Object files
+*.o
+*.obj
+*.elf
+*.axf
+*.bin
+*.hex
+*.srec
+*.s19
+
+# Libraries
+*.a
+*.lib
+
+# Debug and Map files
+*.map
+*.lst
+*.lss
+*.sym
+*.dmp
+
+# Stack usage files
+*.su
+
+# Linker files (generated)
+*.ld.bak
+
+# IDE specific files
+.metadata/
+.recommenders/
+.settings/
+.project
+.cproject
+.csettings
+.csetting
+*.launch
+*.tmp
+*.temp
+
+# MCUXpresso specific
+.mcuxpressoide_packages_support/
+.mcuxpresso/
+frdm*_freertos_hello_world/
+evkb*_freertos_hello_world/
+
+# Code Composer Studio
+.ccsproject
+.cproject
+targetConfigs/
+
+# IAR
+*.eww
+*.ewd
+*.ewp
+*.ewt
+settings/
+Debug_*/
+Release_*/
+
+# Keil uVision
+*.uvproj
+*.uvopt
+*.bak
+*.axf
+
+# GNU Tools for ARM
+*.elf
+*.map
+*.hex
+*.bin
+*.list
+
+# Preprocessor output
+*.i
+*.ii
+*.s
+
+# Assembly listing
+*.asm
+
+# Dependency files
+*.d
+
+# Backup files
+*~
+*.bak
+*.backup
+*.old
+*.orig
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*_temp*
+*temp*
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Python bytecode
+*.pyc
+__pycache__/
+
+# Java class files
+*.class
+
+# Package files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Documentation build
+docs/_build/
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+
+# SDK and third-party libraries (uncomment if you want to ignore them)
+# SDK/
+# middleware/
+# CMSIS/
+# drivers/
+
+# Custom patterns for this project
+# Add any project-specific files you want to ignore below: 
